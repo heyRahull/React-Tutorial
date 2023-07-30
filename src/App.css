@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* In your CSS file or component */
+
+/* Remove card styling */
+figure {
+  border: none;
+  box-shadow: none;
+}
+
+/* Create list layout */
+figure {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Optional: Add a thumbnail to the left */
+figure img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 75px;
+  margin-right: 10px;
+}
+
+/* Optional: Add title and other information to the right */
+figure .info {
+  flex-grow: 1;
+}
+
+/* Optional: Style the title and other information as needed */
+figure .info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Optional: Add more styling as per your preference */

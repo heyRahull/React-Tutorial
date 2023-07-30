@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import Greeting from "./Greeting";
 
-export class App extends Component {
-  render() {
-    return <div>App</div>;
-  }
+function App() {
+  return (
+    <>
+      <Greeting name="John" />
+      <Greeting />
+    </>
+  );
 }
 
 export default App;

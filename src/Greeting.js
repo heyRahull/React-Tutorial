@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Greeting extends Component {
-  render() {
-    return <div>Greeting</div>;
-  }
+function Greeting({ name, lastName }) {
+  return (
+    <>
+      <h2>Hello, {name}</h2>
+    </>
+  );
 }
-
+Greeting.defaultProps = {
+  name: "Guest",
+};
 export default Greeting;

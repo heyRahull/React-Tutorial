@@ -1,10 +1,12 @@
 import React from "react";
-import Greeting from "./Greeting";
+import Toggle from "./Toggle.js";
+import Counter from "./Counter.js";
 
 function App() {
   return (
     <>
-      <Greeting />
+      <Toggle />
+      <Counter />
     </>
   );
 }

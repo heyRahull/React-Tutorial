@@ -1,12 +1,11 @@
 import React from "react";
-import Toggle from "./Toggle.js";
-import Counter from "./Counter.js";
+import ParentComponent from "./ParentComponent";
 
 function App() {
   return (
     <>
-      <Toggle />
-      <Counter />
+      {/* <Toggle /> */}
+      <ParentComponent />
     </>
   );
 }

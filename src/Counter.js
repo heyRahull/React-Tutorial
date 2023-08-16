@@ -1,4 +1,4 @@
-// ---------------State in Functional Component-------------------
+//@thehumbleCoder
 import React, { useState } from "react";
 
 function Counter() {

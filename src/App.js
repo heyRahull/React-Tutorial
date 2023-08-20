@@ -1,15 +1,20 @@
 import React from "react";
-import ParentComponent from "./ParentComponent";
-import UserDashboard from "./UserDashboard";
-import LoginForm from "./LoginForm";
 
 function App() {
-  const isLoggedIn = true;
-  if (isLoggedIn) {
-    return <UserDashboard />;
-  } else {
-    return <LoginForm />;
-  }
+  const users = [
+    { id: 1, name: "Alice", age: 25 },
+    { id: 2, name: "Bob", age: 30 },
+    { id: 3, name: "Charlie", age: 28 },
+  ];
+  return (
+    <>
+      {users.map((user) => (
+        <li key={user.id}>
+          {user.name}-{user.age}
+        </li>
+      ))}
+    </>
+  );
 }
 
 export default App;

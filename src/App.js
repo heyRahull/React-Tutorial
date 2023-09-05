@@ -2,41 +2,63 @@ import React, { useState } from "react";
 
 const App = () => {
   const [name, setName] = useState("");
-  const [technology, setTechnology] = useState("");
+  const [password, setPassword] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [passError, setPassError] = useState(false);
+
   const getFormData = (e) => {
+    if (name.length < 3 || password.length < 3) {
+      alert("Please Enter Correct Values!");
+    } else {
+      alert("Login Successful 😄");
+    }
     e.preventDefault();
   };
-  const handleSubmit = (e) => {
-    console.log(name, technology);
-    setName("");
-    setTechnology("");
+
+  const handleName = (e) => {
+    let item = e.target.value;
+    if (item.length < 3) {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
+    setName(item);
+  };
+
+  const handlePass = (e) => {
+    let item = e.target.value;
+    if (item.length < 3) {
+      setPassError(true);
+    } else {
+      setPassError(false);
+    }
+    setPassword(item);
   };
   return (
     <>
-      <h1>Form Handling in React</h1>
-      <form action="" onSubmit={getFormData}>
-        Name :{" "}
+      <form onSubmit={getFormData}>
+        <h1>Form Validation in React</h1>
+        Username :{" "}
+        <input
+          value={name}
+          type="text"
+          placeholder="Enter your Name"
+          onChange={handleName}
+        />
+        {nameError ? "Invalid Entry" : ""}
+        <br />
+        <br />
+        Password :{" "}
         <input
           type="text"
-          value={name}
-          placeholder="Enter Name"
-          onChange={(e) => setName(e.target.value)}
-        ></input>
+          value={password}
+          placeholder="Enter Password"
+          onChange={handlePass}
+        />
+        {passError ? "Invalid Entry" : ""}
         <br />
         <br />
-        Technology :{" "}
-        <select
-          value={technology}
-          onChange={(e) => setTechnology(e.target.value)}
-        >
-          <option>Select Option</option>
-          <option>React</option>
-          <option>HTML</option>
-          <option>CSS</option>
-        </select>
-        <br />
-        <br />
-        <button onClick={handleSubmit}>Submit</button>
+        <button>Submit</button>
       </form>
     </>
   );

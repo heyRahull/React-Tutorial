@@ -1,17 +1,13 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import User from "./User";
 
-class App extends Component {
-  constructor() {
-    super();
-    console.warn("Constructor");
-    this.state = {
-      name: "Rahul",
-    };
-  }
-  render() {
-    console.warn("Render");
-    return <h1>Hello {this.state.name}</h1>;
-  }
-}
+const App = () => {
+  return (
+    <>
+      <h1>App Component</h1>
+      <User />
+    </>
+  );
+};
 
 export default App;

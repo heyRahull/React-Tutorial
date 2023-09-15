@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export class App extends Component {
   constructor() {
     super();
+    console.warn("Constructor");
     this.state = {
       greet: "Good Morning",
     };
@@ -10,15 +11,21 @@ export class App extends Component {
   componentDidMount() {
     console.warn("componentDidMount");
   }
-  render(props) {
-    console.warn("render");
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.warn("componentDidUpdate", prevState);
+    if (prevState.greet != this.state.greet) {
+      this.setState({ greet: "Good Evening" });
+    }
+  }
+  render() {
+    console.warn("Render");
     return (
       <>
-        <div>User Component</div>
-        <button onClick={() => this.setState({ greet: "Good Evening" })}>
-          Update Message
-        </button>
+        <h1>componentDidMount Lifecycle Method</h1>
         <h1>{this.state.greet}</h1>
+        <button onClick={() => this.setState({ greet: "Good Evening" })}>
+          Update Greeting
+        </button>
       </>
     );
   }

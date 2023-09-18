@@ -5,26 +5,30 @@ export class App extends Component {
     super();
     console.warn("Constructor");
     this.state = {
-      greet: "Good Morning",
+      count: 0,
     };
   }
   componentDidMount() {
     console.warn("componentDidMount");
   }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.warn("componentDidUpdate", prevState);
-    if (prevState.greet != this.state.greet) {
-      this.setState({ greet: "Good Evening" });
-    }
+  componentDidUpdate() {
+    console.warn("componentDidUpdate");
+
+    // this.setState({ greet: "Good Evening" });
+  }
+  shouldComponentUpdate() {
+    console.log("shouldComponentUpdate", this.state.count);
+    if (this.state.count < 5) return true;
+    return false;
   }
   render() {
     console.warn("Render");
     return (
       <>
-        <h1>componentDidMount Lifecycle Method</h1>
-        <h1>{this.state.greet}</h1>
-        <button onClick={() => this.setState({ greet: "Good Evening" })}>
-          Update Greeting
+        <h1>shouldComponentUpdate Lifecycle Method</h1>
+        <h1>{this.state.count}</h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Update Count
         </button>
       </>
     );

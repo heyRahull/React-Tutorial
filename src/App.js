@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
-  const [data, setData] = useState("The Humble");
+  const [count, setCount] = useState(0);
+  const [data, setData] = useState(0);
+  useEffect(() => {
+    console.warn("Count Updated");
+  }, [count]);
+
+  useEffect(() => {
+    console.warn("data Updated");
+  }, [data]);
   return (
     <>
-      <h2>{data}</h2>
+      <h2>Count {count}</h2>
+      <h2>Data {data}</h2>
       <button
         onClick={() => {
-          setData("Coder");
+          setCount(count + 1);
         }}
       >
-        Update
+        Update Count
+      </button>
+      <button
+        onClick={() => {
+          setData(data + 1);
+        }}
+      >
+        Update Data
       </button>
     </>
   );

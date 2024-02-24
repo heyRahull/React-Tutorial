@@ -1,19 +1,10 @@
 import React from "react";
 
-const Child = (props) => {
-  const greet = "Good Morning ";
-  return (
-    <>
-      <h2>Hello</h2>
-      <button
-        onClick={() => {
-          props.func(greet);
-        }}
-      >
-        Update
-      </button>
-    </>
-  );
-};
+class Child extends React.PureComponent {
+  render() {
+    console.warn("Child component renders");
+    return <h1>{this.props.name}</h1>;
+  }
+}
 
 export default Child;

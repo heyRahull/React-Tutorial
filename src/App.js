@@ -1,15 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
 import Child from "./Child";
 
-const App = () => {
-  function parent(greet) {
-    alert(greet);
+export class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "The Humble",
+    };
   }
-  return (
-    <>
-      <Child func={parent} />
-    </>
-  );
-};
+  render() {
+    return (
+      <div>
+        <Child name={this.state.name} />
+        <button
+          onClick={() => {
+            this.setState({ name: "Coder" });
+          }}
+        >
+          Update Name
+        </button>
+      </div>
+    );
+  }
+}
 
 export default App;

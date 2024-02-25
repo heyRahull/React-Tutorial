@@ -1,27 +1,36 @@
-import React, { Component } from "react";
-import Child from "./Child";
+import React, { useState } from "react";
+import { useMemo } from "react";
 
-export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "The Humble",
-    };
-  }
-  render() {
-    return (
-      <div>
-        <Child name={this.state.name} />
-        <button
-          onClick={() => {
-            this.setState({ name: "Coder" });
-          }}
-        >
-          Update Name
-        </button>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [data, setData] = useState(10);
+
+  const calculate = useMemo(() => {
+    console.warn("Calculate function rendered");
+    return count * 5;
+  }, [count]);
+
+  return (
+    <>
+      <h2>Calculated value {calculate}</h2>
+      <h2>Count {count}</h2>
+      <h2>data {data}</h2>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Update Count
+      </button>
+      <button
+        onClick={() => {
+          setData(data * 10);
+        }}
+      >
+        Update data
+      </button>
+    </>
+  );
+};
 
 export default App;

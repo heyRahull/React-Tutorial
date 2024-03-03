@@ -1,10 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-class Child extends React.PureComponent {
-  render() {
-    console.warn("Child component renders");
-    return <h1>{this.props.name}</h1>;
-  }
-}
+const Child = (props, ref) => {
+  return <input type="text" ref={ref} />;
+};
 
-export default Child;
+export default forwardRef(Child);

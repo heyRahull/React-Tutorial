@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Child from "./Child";
 
 const App = () => {
   let inputRef = useRef(null);
@@ -10,7 +11,7 @@ const App = () => {
   return (
     <>
       <h1>useref hook in react</h1>
-      <input type="text" ref={inputRef} />
+      <Child ref={inputRef} />
       <button onClick={handleInput}>Update input</button>
     </>
   );

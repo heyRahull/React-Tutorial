@@ -1,36 +1,24 @@
-import React, { useState } from "react";
-import { useMemo } from "react";
+import React, { Component, createRef } from "react";
 
-const App = () => {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState(10);
-
-  const calculate = useMemo(() => {
-    console.warn("Calculate function rendered");
-    return count * 5;
-  }, [count]);
-
-  return (
-    <>
-      <h2>Calculated value {calculate}</h2>
-      <h2>Count {count}</h2>
-      <h2>data {data}</h2>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        Update Count
-      </button>
-      <button
-        onClick={() => {
-          setData(data * 10);
-        }}
-      >
-        Update data
-      </button>
-    </>
-  );
-};
+export class App extends Component {
+  constructor() {
+    super();
+    this.inputRef = createRef();
+  }
+  handleInput = () => {
+    this.inputRef.current.value = "1000";
+    this.inputRef.current.style.color = "red";
+    this.inputRef.current.focus();
+  };
+  render() {
+    return (
+      <>
+        <h1>Ref in React</h1>
+        <input type="text" ref={this.inputRef} />
+        <button onClick={this.handleInput}>Update Imput</button>
+      </>
+    );
+  }
+}
 
 export default App;

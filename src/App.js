@@ -1,24 +1,19 @@
-import React, { Component, createRef } from "react";
+import React, { useRef } from "react";
 
-export class App extends Component {
-  constructor() {
-    super();
-    this.inputRef = createRef();
-  }
-  handleInput = () => {
-    this.inputRef.current.value = "1000";
-    this.inputRef.current.style.color = "red";
-    this.inputRef.current.focus();
+const App = () => {
+  let inputRef = useRef(null);
+  const handleInput = () => {
+    inputRef.current.value = "1000";
+    inputRef.current.style.color = "red";
+    inputRef.current.focus();
   };
-  render() {
-    return (
-      <>
-        <h1>Ref in React</h1>
-        <input type="text" ref={this.inputRef} />
-        <button onClick={this.handleInput}>Update Imput</button>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <h1>useref hook in react</h1>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleInput}>Update input</button>
+    </>
+  );
+};
 
 export default App;

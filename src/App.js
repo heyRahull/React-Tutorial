@@ -1,19 +1,11 @@
-import React, { useRef } from "react";
-import Child from "./Child";
+import React from "react";
+import Task1 from "./Task1";
 
 const App = () => {
-  let inputRef = useRef(null);
-  const handleInput = () => {
-    inputRef.current.value = "1000";
-    inputRef.current.style.color = "red";
-    inputRef.current.focus();
-  };
   return (
-    <>
-      <h1>useref hook in react</h1>
-      <Child ref={inputRef} />
-      <button onClick={handleInput}>Update input</button>
-    </>
+    <div>
+      <Task1 />
+    </div>
   );
 };
 

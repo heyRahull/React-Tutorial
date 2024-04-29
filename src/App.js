@@ -1,10 +1,11 @@
 import React from "react";
-import Task1 from "./Task1";
+import ChildA from "./ChildA";
 
 const App = () => {
+  const name = "rahul";
   return (
     <div>
-      <Task1 />
+      <ChildA data={name} />
     </div>
   );
 };

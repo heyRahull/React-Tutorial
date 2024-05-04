@@ -1,11 +1,16 @@
-import React from "react";
+import React, { createContext } from "react";
 import ChildA from "./ChildA";
+import { DataProvider } from "./DataContext";
+import { Data1Provider } from "./Data1Context";
 
 const App = () => {
-  const name = "rahul";
   return (
     <div>
-      <ChildA data={name} />
+      <DataProvider>
+        <Data1Provider>
+          <ChildA />
+        </Data1Provider>
+      </DataProvider>
     </div>
   );
 };
